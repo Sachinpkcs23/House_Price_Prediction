@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boston House Price Prediction</title>
+  <style>
+    body {
+      background: linear-gradient(120deg, #89f7fe, #66a6ff);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .container {
+      max-width: 340px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      font-size: 18px;
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #444;
+      margin-top: 8px;
+      display: block;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 6px 8px;
+      font-size: 12px;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #f0f8ff;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(to right, #00b4db, #0083b0);
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 8px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 5px;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(to right, #0083b0, #00b4db);
+    }
+
+    .result {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 14px;
+      color: #28a745;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Boston House Price Prediction</h2>
+
+    <form action="/predict" method="post">
+      <label>CRIM</label>
+      <input type="text" name="CRIM">
+
+      <label>ZN</label>
+      <input type="text" name="ZN">
+
+      <label>INDUS</label>
+      <input type="text" name="INDUS">
+
+      <label>CHAS</label>
+      <input type="text" name="CHAS">
+
+      <label>NOX</label>
+      <input type="text" name="NOX">
+
+      <label>RM</label>
+      <input type="text" name="RM">
+
+      <label>AGE</label>
+      <input type="text" name="AGE">
+
+      <label>DIS</label>
+      <input type="text" name="DIS">
+
+      <label>RAD</label>
+      <input type="text" name="RAD">
+
+      <label>TAX</label>
+      <input type="text" name="TAX">
+
+      <label>PTRATIO</label>
+      <input type="text" name="PTRATIO">
+
+      <label>B</label>
+      <input type="text" name="B">
+
+      <label>LSTAT</label>
+      <input type="text" name="LSTAT">
+
+      <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+      <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+  </div>
+
+</body>
+</html>
